@@ -5,7 +5,7 @@ Conditions will be logged sequentially with timestamps.
 
 Condition A — Generate then Fix
 
-Prompt 1 executed at 21:52 and ended at 21:53. Time taken: 1 min 01 seconds
+Prompt 1 executed at 13-03-2026 21:52 and ended at 21:53. Time taken: 1 min 01 seconds
 
 AI generated a full React Todo application including:
 
