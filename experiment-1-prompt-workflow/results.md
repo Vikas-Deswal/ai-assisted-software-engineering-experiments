@@ -69,3 +69,47 @@ Compared with Condition A, the structured workflow produced:
 However, generation time increased significantly (approximately **5.5× slower** than Condition A).
 
 Further experiments will evaluate whether this architectural structure reduces modification effort as the system evolves.
+
+## Condition C — One-Shot Structured Prompt
+
+### Metrics
+
+Total prompts: 1  
+Correction prompts: 0  
+Total time to working application: 1 minute 04 seconds  
+Compile success: Yes  
+Regression count: 0
+
+### Quality Evaluation
+
+Functional correctness: 2 / 2  
+Regression stability: 2 / 2  
+Implementation cleanliness: 1 / 2  
+UI adequacy: 1 / 2
+
+Total score: **6 / 8**
+
+### Observations
+
+- The model generated a small component-based structure.
+- Compared with Condition A, the architecture showed slightly improved separation of concerns.
+- Compared with Condition B, the implementation lacked modular elements such as hooks or utility modules.
+- The UI remained minimal and did not include additional behaviors such as task completion statistics.
+
+### Interpretation
+
+Condition C produced results similar to the reactive workflow in execution time while introducing limited architectural structure.
+
+This suggests that instructing the model to internally reason about specification and architecture may provide partial improvements in implementation structure without significantly increasing generation time.
+
+However, the staged workflow in Condition B produced the most structured and feature-rich implementation.
+
+
+# Summary of Experiment 1
+
+All three prompting workflows successfully produced a working application without regressions.
+However, the prompting workflow significantly influenced architectural structure and implementation richness.
+
+The staged workflow produced the most modular architecture but required substantially more interaction time.
+
+The one-shot structured workflow produced moderate architectural improvements while maintaining similar execution time to the reactive workflow.
