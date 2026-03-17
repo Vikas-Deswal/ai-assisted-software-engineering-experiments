@@ -4,6 +4,8 @@ function App() {
   const [tasks, setTasks] = useState([])
   const [inputValue, setInputValue] = useState('')
   const [isInitialized, setIsInitialized] = useState(false)
+  const [editingId, setEditingId] = useState(null)
+  const [editValue, setEditValue] = useState('')
 
   useEffect(() => {
     const savedTasks = localStorage.getItem('todos')
@@ -43,6 +45,26 @@ function App() {
     ))
   }
 
+  const startEdit = (id, text) => {
+    setEditingId(id)
+    setEditValue(text)
+  }
+
+  const cancelEdit = () => {
+    setEditingId(null)
+    setEditValue('')
+  }
+
+  const saveEdit = (id) => {
+    if (editValue.trim() === '') return
+    
+    setTasks(tasks.map(task =>
+      task.id === id ? { ...task, text: editValue } : task
+    ))
+    setEditingId(null)
+    setEditValue('')
+  }
+
   return (
     <div className="app">
       <div className="container">
@@ -65,23 +87,59 @@ function App() {
           ) : (
             tasks.map(task => (
               <div key={task.id} className="task-item">
-                <div className="task-content">
-                  <input
-                    type="checkbox"
-                    checked={task.completed}
-                    onChange={() => toggleComplete(task.id)}
-                    className="task-checkbox"
-                  />
-                  <span className={task.completed ? 'task-text completed' : 'task-text'}>
-                    {task.text}
-                  </span>
-                </div>
-                <button
-                  onClick={() => deleteTask(task.id)}
-                  className="delete-button"
-                >
-                  Delete
-                </button>
+                {editingId === task.id ? (
+                  <>
+                    <input
+                      type="text"
+                      value={editValue}
+                      onChange={(e) => setEditValue(e.target.value)}
+                      className="edit-input"
+                      autoFocus
+                    />
+                    <div className="edit-buttons">
+                      <button
+                        onClick={() => saveEdit(task.id)}
+                        className="save-button"
+                      >
+                        Save
+                      </button>
+                      <button
+                        onClick={cancelEdit}
+                        className="cancel-button"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="task-content">
+                      <input
+                        type="checkbox"
+                        checked={task.completed}
+                        onChange={() => toggleComplete(task.id)}
+                        className="task-checkbox"
+                      />
+                      <span className={task.completed ? 'task-text completed' : 'task-text'}>
+                        {task.text}
+                      </span>
+                    </div>
+                    <div className="task-buttons">
+                      <button
+                        onClick={() => startEdit(task.id, task.text)}
+                        className="edit-button"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => deleteTask(task.id)}
+                        className="delete-button"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
             ))
           )}
