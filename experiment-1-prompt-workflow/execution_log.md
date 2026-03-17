@@ -65,3 +65,36 @@ Although the AI description referenced gradient styling, the rendered UI appeare
 All functional features operated correctly.
 
 Corrections used: 0
+
+## Condition C: One-Shot Structured Prompt
+
+Prompt 1 executed on 17 March 2026 19:40 and completed by 19:41:13
+
+Application compiled and ran successfully.
+
+Verification results:
+- Add task: working
+- Delete task: working
+- Mark task complete: working
+- **Persistence after reload: Failed**
+
+Observation:
+Tasks disappear after page reload. Local storage persistence not implemented.
+The generated architecture included multiple React components and separate CSS files for each component.
+
+Run commands suggested by the model differed from other conditions:
+- npm install
+- npm start
+
+Correction prompt will be issued to fix persistence.
+
+Correction prompt executed at 17:27 and completed at 17:27:21
+Time taken: 21 seconds
+
+Post-correction verification:
+- Add task: working
+- Delete task: working
+- Mark task complete: working
+- **Persistence after reload: Working**
+
+Condition C baseline implementation verified successfully.
