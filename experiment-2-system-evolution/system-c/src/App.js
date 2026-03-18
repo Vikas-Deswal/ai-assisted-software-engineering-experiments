@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import TodoFilter from './components/TodoFilter';
 import './App.css';
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
     const storedTodos = localStorage.getItem('todos');
     return storedTodos ? JSON.parse(storedTodos) : [];
   });
+
+  const [filter, setFilter] = useState('all');
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -38,13 +41,25 @@ function App() {
     ));
   };
 
+  const getFilteredTodos = () => {
+    switch (filter) {
+      case 'completed':
+        return todos.filter(todo => todo.completed);
+      case 'pending':
+        return todos.filter(todo => !todo.completed);
+      default:
+        return todos;
+    }
+  };
+
   return (
     <div className="app">
       <div className="container">
         <h1>Todo List</h1>
         <TodoForm addTodo={addTodo} />
+        <TodoFilter currentFilter={filter} setFilter={setFilter} />
         <TodoList
-          todos={todos}
+          todos={getFilteredTodos()}
           deleteTodo={deleteTodo}
           toggleComplete={toggleComplete}
           editTodo={editTodo}

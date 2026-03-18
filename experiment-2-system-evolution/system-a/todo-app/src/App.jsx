@@ -6,6 +6,7 @@ function App() {
   const [isInitialized, setIsInitialized] = useState(false)
   const [editingId, setEditingId] = useState(null)
   const [editValue, setEditValue] = useState('')
+  const [filter, setFilter] = useState('all')
 
   useEffect(() => {
     const savedTasks = localStorage.getItem('todos')
@@ -65,6 +66,17 @@ function App() {
     setEditValue('')
   }
 
+  const getFilteredTasks = () => {
+    if (filter === 'completed') {
+      return tasks.filter(task => task.completed)
+    } else if (filter === 'pending') {
+      return tasks.filter(task => !task.completed)
+    }
+    return tasks
+  }
+
+  const filteredTasks = getFilteredTasks()
+
   return (
     <div className="app">
       <div className="container">
@@ -81,11 +93,34 @@ function App() {
           <button type="submit" className="add-button">Add</button>
         </form>
 
+        <div className="filter-buttons">
+          <button
+            onClick={() => setFilter('all')}
+            className={filter === 'all' ? 'filter-button active' : 'filter-button'}
+          >
+            All
+          </button>
+          <button
+            onClick={() => setFilter('pending')}
+            className={filter === 'pending' ? 'filter-button active' : 'filter-button'}
+          >
+            Pending
+          </button>
+          <button
+            onClick={() => setFilter('completed')}
+            className={filter === 'completed' ? 'filter-button active' : 'filter-button'}
+          >
+            Completed
+          </button>
+        </div>
+
         <div className="task-list">
-          {tasks.length === 0 ? (
-            <p className="empty-message">No tasks yet. Add one above!</p>
+          {filteredTasks.length === 0 ? (
+            <p className="empty-message">
+              {tasks.length === 0 ? 'No tasks yet. Add one above!' : `No ${filter} tasks.`}
+            </p>
           ) : (
-            tasks.map(task => (
+            filteredTasks.map(task => (
               <div key={task.id} className="task-item">
                 {editingId === task.id ? (
                   <>

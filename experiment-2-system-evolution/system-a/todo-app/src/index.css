@@ -73,6 +73,34 @@ h1 {
   background: #5568d3;
 }
 
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.filter-button {
+  padding: 10px 20px;
+  background: #e0e0e0;
+  color: #666;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-button:hover {
+  background: #d0d0d0;
+}
+
+.filter-button.active {
+  background: #667eea;
+  color: white;
+}
+
 .task-list {
   display: flex;
   flex-direction: column;
