@@ -4,7 +4,7 @@ import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 import FilterButtons from './components/FilterButtons';
 import { useLocalStorage } from './hooks/useLocalStorage';
-import { createTask, toggleTaskCompletion, deleteTask, editTask } from './utils/taskHelpers';
+import { createTask, toggleTaskCompletion, deleteTask, editTask, clearCompletedTasks } from './utils/taskHelpers';
 
 function App() {
   const [tasks, setTasks] = useLocalStorage('todos', []);
@@ -30,6 +30,10 @@ function App() {
     }
   };
 
+  const handleClearCompleted = () => {
+    setTasks(clearCompletedTasks(tasks));
+  };
+
   const getFilteredTasks = () => {
     switch (filter) {
       case 'completed':
@@ -47,7 +51,7 @@ function App() {
         <div className="bg-white rounded-xl shadow-lg p-8">
           <Header />
           <TodoInput onAddTask={handleAddTask} />
-          <FilterButtons currentFilter={filter} onFilterChange={setFilter} />
+          <FilterButtons currentFilter={filter} onFilterChange={setFilter} onClearCompleted={handleClearCompleted} />
           <TodoList
             tasks={getFilteredTasks()}
             onToggleComplete={handleToggleComplete}
