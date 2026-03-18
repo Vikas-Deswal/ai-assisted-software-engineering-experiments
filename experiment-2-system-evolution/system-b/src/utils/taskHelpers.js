@@ -26,3 +26,7 @@ export const editTask = (tasks, id, newText) => {
     task.id === id ? { ...task, text: newText.trim() } : task
   );
 };
+
+export const clearCompletedTasks = (tasks) => {
+  return tasks.filter(task => !task.completed);
+};

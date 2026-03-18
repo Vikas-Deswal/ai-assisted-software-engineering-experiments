@@ -1,4 +1,4 @@
-function FilterButtons({ currentFilter, onFilterChange }) {
+function FilterButtons({ currentFilter, onFilterChange, onClearCompleted }) {
   const filters = [
     { id: 'all', label: 'All Tasks' },
     { id: 'pending', label: 'Pending' },
@@ -6,7 +6,7 @@ function FilterButtons({ currentFilter, onFilterChange }) {
   ];
 
   return (
-    <div className="flex gap-2 mb-6 justify-center">
+    <div className="flex gap-2 mb-6 justify-center flex-wrap">
       {filters.map((filter) => (
         <button
           key={filter.id}
@@ -20,6 +20,12 @@ function FilterButtons({ currentFilter, onFilterChange }) {
           {filter.label}
         </button>
       ))}
+      <button
+        onClick={onClearCompleted}
+        className="px-4 py-2 rounded-lg font-medium bg-red-100 text-red-700 hover:bg-red-200 transition-all"
+      >
+        Clear Completed
+      </button>
     </div>
   );
 }

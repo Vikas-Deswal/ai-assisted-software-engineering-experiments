@@ -66,6 +66,10 @@ function App() {
     setEditValue('')
   }
 
+  const clearCompleted = () => {
+    setTasks(tasks.filter(task => !task.completed))
+  }
+
   const getFilteredTasks = () => {
     if (filter === 'completed') {
       return tasks.filter(task => task.completed)
@@ -183,6 +187,14 @@ function App() {
         {tasks.length > 0 && (
           <div className="task-summary">
             {tasks.filter(t => t.completed).length} of {tasks.length} tasks completed
+          </div>
+        )}
+
+        {tasks.filter(t => t.completed).length > 0 && (
+          <div className="clear-completed-container">
+            <button onClick={clearCompleted} className="clear-completed-button">
+              Clear Completed
+            </button>
           </div>
         )}
       </div>

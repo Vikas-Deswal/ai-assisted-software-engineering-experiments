@@ -41,6 +41,10 @@ function App() {
     ));
   };
 
+  const clearCompleted = () => {
+    setTodos(todos.filter(todo => !todo.completed));
+  };
+
   const getFilteredTodos = () => {
     switch (filter) {
       case 'completed':
@@ -57,7 +61,7 @@ function App() {
       <div className="container">
         <h1>Todo List</h1>
         <TodoForm addTodo={addTodo} />
-        <TodoFilter currentFilter={filter} setFilter={setFilter} />
+        <TodoFilter currentFilter={filter} setFilter={setFilter} clearCompleted={clearCompleted} />
         <TodoList
           todos={getFilteredTodos()}
           deleteTodo={deleteTodo}

@@ -25,3 +25,20 @@
   background-color: #4a90e2;
   color: white;
 }
+
+.clear-completed-button {
+  padding: 8px 20px;
+  border: 2px solid #e74c3c;
+  background-color: white;
+  color: #e74c3c;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.clear-completed-button:hover {
+  background-color: #e74c3c;
+  color: white;
+}

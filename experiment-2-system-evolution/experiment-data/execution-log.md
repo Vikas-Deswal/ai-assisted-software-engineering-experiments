@@ -162,3 +162,86 @@ New feature:
 - Filter tasks (all / completed / pending): working
 
 No correction prompts were required.
+
+## Feature 3: Clear Completed Tasks
+
+### System C
+
+Prompt executed: 18 March 2026  
+Total implementation time: 1 minute 23 seconds
+
+Result:
+The model successfully implemented the "filter tasks" feature.
+
+Files modified: 3  
+Lines added: 29  
+Lines deleted: 2
+
+Verification results:
+
+Existing features:
+- Add task: working
+- Delete task: working
+- Mark task complete: working
+- Persistence: working
+- Edit task: working
+- Filter tasks (all / completed / pending): working
+
+New feature:
+- Clear Compelted tasks: working
+
+No correction prompts were required.
+
+### System A
+
+Prompt executed: 18 March 2026  
+Total implementation time: 1 minute 19 seconds
+
+Result:
+The model successfully implemented the "filter tasks" feature.
+
+Files modified: 2  
+Lines added: 33  
+Lines deleted: 0
+
+Verification results:
+
+Existing features:
+- Add task: working
+- Delete task: working
+- Mark task complete: working
+- Persistence: working
+- Edit task: working
+- Filter tasks (all / completed / pending): working
+
+New feature:
+- Clear Compelted tasks: working
+
+No correction prompts were required.
+
+### System B
+
+Prompt executed: 18 March 2026  
+Total implementation time: 1 minute 45 seconds
+
+Result:
+The model successfully implemented the "filter tasks" feature.
+
+Files modified: 3  
+Lines added: 18  
+Lines deleted: 4
+
+Verification results:
+
+Existing features:
+- Add task: working
+- Delete task: working
+- Mark task complete: working
+- Persistence: working
+- Edit task: working
+- Filter tasks (all / completed / pending): working
+
+New feature:
+- Clear Compelted tasks: working
+
+No correction prompts were required.
