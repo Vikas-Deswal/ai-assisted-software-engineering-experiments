@@ -16,11 +16,12 @@ function App() {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
-  const addTodo = (text) => {
+  const addTodo = (text, dueDate = null) => {
     const newTodo = {
       id: Date.now().toString(),
       text: text,
-      completed: false
+      completed: false,
+      dueDate: dueDate
     };
     setTodos([...todos, newTodo]);
   };
