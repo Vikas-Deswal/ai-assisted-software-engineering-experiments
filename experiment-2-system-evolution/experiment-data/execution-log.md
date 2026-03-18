@@ -82,3 +82,31 @@ New feature:
 - Edit task: working
 
 No correction prompts were required.
+
+## Feature 2: Filter Tasks
+
+### System B
+
+Prompt executed: 17 March 2026  
+Total implementation time: 1 minute 15 seconds
+
+Result:
+The model successfully implemented the "filter tasks" feature.
+
+Files modified: 2  
+Lines added: 43  
+Lines deleted: 1
+
+Verification results:
+
+Existing features:
+- Add task: working
+- Delete task: working
+- Mark task complete: working
+- Persistence: working
+- Edit task: working
+
+New feature:
+- Filter tasks (all / completed / pending): working
+
+No correction prompts were required.

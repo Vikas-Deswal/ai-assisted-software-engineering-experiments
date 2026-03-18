@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import Header from './components/Header';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
+import FilterButtons from './components/FilterButtons';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { createTask, toggleTaskCompletion, deleteTask, editTask } from './utils/taskHelpers';
 
 function App() {
   const [tasks, setTasks] = useLocalStorage('todos', []);
+  const [filter, setFilter] = useState('all');
 
   const handleAddTask = (text) => {
     if (text.trim()) {
@@ -27,14 +30,26 @@ function App() {
     }
   };
 
+  const getFilteredTasks = () => {
+    switch (filter) {
+      case 'completed':
+        return tasks.filter(task => task.completed);
+      case 'pending':
+        return tasks.filter(task => !task.completed);
+      default:
+        return tasks;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="bg-white rounded-xl shadow-lg p-8">
           <Header />
           <TodoInput onAddTask={handleAddTask} />
+          <FilterButtons currentFilter={filter} onFilterChange={setFilter} />
           <TodoList
-            tasks={tasks}
+            tasks={getFilteredTasks()}
             onToggleComplete={handleToggleComplete}
             onDeleteTask={handleDeleteTask}
             onEditTask={handleEditTask}
