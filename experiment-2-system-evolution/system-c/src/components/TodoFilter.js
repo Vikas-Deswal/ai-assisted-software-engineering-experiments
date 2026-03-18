@@ -1,7 +1,7 @@
 import React from 'react';
 import './TodoFilter.css';
 
-function TodoFilter({ currentFilter, setFilter }) {
+function TodoFilter({ currentFilter, setFilter, clearCompleted }) {
   return (
     <div className="todo-filter">
       <button
@@ -21,6 +21,12 @@ function TodoFilter({ currentFilter, setFilter }) {
         onClick={() => setFilter('completed')}
       >
         Completed
+      </button>
+      <button
+        className="clear-completed-button"
+        onClick={clearCompleted}
+      >
+        Clear Completed
       </button>
     </div>
   );
