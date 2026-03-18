@@ -2,7 +2,7 @@ import React from 'react';
 import TodoItem from './TodoItem';
 import './TodoList.css';
 
-function TodoList({ todos, deleteTodo, toggleComplete }) {
+function TodoList({ todos, deleteTodo, toggleComplete, editTodo }) {
   if (todos.length === 0) {
     return (
       <div className="empty-state">
@@ -19,6 +19,7 @@ function TodoList({ todos, deleteTodo, toggleComplete }) {
           todo={todo}
           deleteTodo={deleteTodo}
           toggleComplete={toggleComplete}
+          editTodo={editTodo}
         />
       ))}
     </ul>

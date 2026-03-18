@@ -32,6 +32,12 @@ function App() {
     ));
   };
 
+  const editTodo = (id, newText) => {
+    setTodos(todos.map(todo =>
+      todo.id === id ? { ...todo, text: newText } : todo
+    ));
+  };
+
   return (
     <div className="app">
       <div className="container">
@@ -41,6 +47,7 @@ function App() {
           todos={todos}
           deleteTodo={deleteTodo}
           toggleComplete={toggleComplete}
+          editTodo={editTodo}
         />
       </div>
     </div>

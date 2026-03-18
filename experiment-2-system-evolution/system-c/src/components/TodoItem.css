@@ -38,6 +38,32 @@
   color: #999;
 }
 
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: #667eea;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.edit-button:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+}
+
+.edit-button:active {
+  transform: translateY(0);
+}
+
 .delete-button {
   padding: 8px 16px;
   font-size: 14px;
@@ -52,9 +78,61 @@
 
 .delete-button:hover {
   background: #c82333;
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 
 .delete-button:active {
-  transform: scale(0.95);
+  transform: translateY(0);
+}
+
+.save-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.save-button:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+.save-button:active {
+  transform: translateY(0);
+}
+
+.cancel-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: #6c757d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.cancel-button:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+.cancel-button:active {
+  transform: translateY(0);
+}
+
+.edit-input {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 2px solid #667eea;
+  border-radius: 5px;
+  outline: none;
+  background: white;
 }
