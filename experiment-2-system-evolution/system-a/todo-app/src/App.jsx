@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 function App() {
   const [tasks, setTasks] = useState([])
   const [inputValue, setInputValue] = useState('')
+  const [dueDate, setDueDate] = useState('')
   const [isInitialized, setIsInitialized] = useState(false)
   const [editingId, setEditingId] = useState(null)
   const [editValue, setEditValue] = useState('')
@@ -29,11 +30,13 @@ function App() {
     const newTask = {
       id: Date.now(),
       text: inputValue,
-      completed: false
+      completed: false,
+      dueDate: dueDate || null
     }
 
     setTasks([...tasks, newTask])
     setInputValue('')
+    setDueDate('')
   }
 
   const deleteTask = (id) => {
@@ -93,6 +96,12 @@ function App() {
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Add a new task..."
             className="task-input"
+          />
+          <input
+            type="date"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+            className="date-input"
           />
           <button type="submit" className="add-button">Add</button>
         </form>
@@ -159,9 +168,16 @@ function App() {
                         onChange={() => toggleComplete(task.id)}
                         className="task-checkbox"
                       />
-                      <span className={task.completed ? 'task-text completed' : 'task-text'}>
-                        {task.text}
-                      </span>
+                      <div className="task-info">
+                        <span className={task.completed ? 'task-text completed' : 'task-text'}>
+                          {task.text}
+                        </span>
+                        {task.dueDate && (
+                          <span className="task-due-date">
+                            Due: {new Date(task.dueDate).toLocaleDateString()}
+                          </span>
+                        )}
+                      </div>
                     </div>
                     <div className="task-buttons">
                       <button

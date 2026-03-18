@@ -57,6 +57,20 @@ h1 {
   border-color: #667eea;
 }
 
+.date-input {
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  min-width: 150px;
+}
+
+.date-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
 .add-button {
   padding: 12px 24px;
   background: #667eea;
@@ -144,6 +158,18 @@ h1 {
 .task-text.completed {
   text-decoration: line-through;
   color: #999;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task-due-date {
+  font-size: 12px;
+  color: #667eea;
+  font-weight: 500;
 }
 
 .delete-button {
