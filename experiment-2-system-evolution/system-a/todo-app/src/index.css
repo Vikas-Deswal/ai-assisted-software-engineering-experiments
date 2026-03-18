@@ -250,3 +250,24 @@ h1 {
   font-size: 14px;
   font-weight: 500;
 }
+
+.clear-completed-container {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.clear-completed-button {
+  padding: 12px 24px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.clear-completed-button:hover {
+  background: #ee5a6f;
+}
