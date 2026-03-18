@@ -1,6 +1,6 @@
 import TodoItem from './TodoItem';
 
-function TodoList({ tasks, onToggleComplete, onDeleteTask }) {
+function TodoList({ tasks, onToggleComplete, onDeleteTask, onEditTask }) {
   if (tasks.length === 0) {
     return (
       <div className="text-center py-12">
@@ -17,6 +17,7 @@ function TodoList({ tasks, onToggleComplete, onDeleteTask }) {
           task={task}
           onToggleComplete={onToggleComplete}
           onDelete={onDeleteTask}
+          onEdit={onEditTask}
         />
       ))}
     </ul>

@@ -20,3 +20,9 @@ export const toggleTaskCompletion = (tasks, id) => {
 export const deleteTask = (tasks, id) => {
   return tasks.filter(task => task.id !== id);
 };
+
+export const editTask = (tasks, id, newText) => {
+  return tasks.map(task =>
+    task.id === id ? { ...task, text: newText.trim() } : task
+  );
+};

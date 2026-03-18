@@ -2,7 +2,7 @@ import Header from './components/Header';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 import { useLocalStorage } from './hooks/useLocalStorage';
-import { createTask, toggleTaskCompletion, deleteTask } from './utils/taskHelpers';
+import { createTask, toggleTaskCompletion, deleteTask, editTask } from './utils/taskHelpers';
 
 function App() {
   const [tasks, setTasks] = useLocalStorage('todos', []);
@@ -21,6 +21,12 @@ function App() {
     setTasks(deleteTask(tasks, id));
   };
 
+  const handleEditTask = (id, newText) => {
+    if (newText.trim()) {
+      setTasks(editTask(tasks, id, newText));
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
       <div className="max-w-2xl mx-auto">
@@ -31,6 +37,7 @@ function App() {
             tasks={tasks}
             onToggleComplete={handleToggleComplete}
             onDeleteTask={handleDeleteTask}
+            onEditTask={handleEditTask}
           />
         </div>
       </div>
