@@ -50,9 +50,16 @@ function TodoItem({ todo, deleteTodo, toggleComplete, editTodo }) {
             autoFocus
           />
         ) : (
-          <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
-            {todo.text}
-          </span>
+          <div className="todo-text-container">
+            <span className={todo.completed ? 'todo-text completed' : 'todo-text'}>
+              {todo.text}
+            </span>
+            {todo.dueDate && (
+              <span className="todo-due-date">
+                Due: {new Date(todo.dueDate).toLocaleDateString()}
+              </span>
+            )}
+          </div>
         )}
       </div>
       <div className="button-group">

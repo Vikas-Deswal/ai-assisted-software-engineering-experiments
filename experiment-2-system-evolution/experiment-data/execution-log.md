@@ -171,7 +171,7 @@ Prompt executed: 18 March 2026
 Total implementation time: 1 minute 23 seconds
 
 Result:
-The model successfully implemented the "filter tasks" feature.
+The model successfully implemented the "clear completed tasks" feature.
 
 Files modified: 3  
 Lines added: 29  
@@ -198,7 +198,7 @@ Prompt executed: 18 March 2026
 Total implementation time: 1 minute 19 seconds
 
 Result:
-The model successfully implemented the "filter tasks" feature.
+The model successfully implemented the "clear completed tasks" feature.
 
 Files modified: 2  
 Lines added: 33  
@@ -225,7 +225,7 @@ Prompt executed: 18 March 2026
 Total implementation time: 1 minute 45 seconds
 
 Result:
-The model successfully implemented the "filter tasks" feature.
+The model successfully implemented the "clear completed tasks" feature.
 
 Files modified: 3  
 Lines added: 18  
@@ -243,5 +243,91 @@ Existing features:
 
 New feature:
 - Clear Compelted tasks: working
+
+No correction prompts were required.
+
+## Feature 4: Add Optional Due Date
+
+### System A
+
+Prompt executed: 18 March 2026  
+Total implementation time: 2 minute 32 seconds
+
+Result:
+The model successfully implemented the "add due date" feature.
+
+Files modified: 2  
+Lines added: 46  
+Lines deleted: 4
+
+Verification results:
+
+Existing features:
+- Add task: working
+- Delete task: working
+- Mark task complete: working
+- Persistence: working
+- Edit task: working
+- Filter tasks (all / completed / pending): working
+- Clear Compelted tasks: working
+
+New feature:
+- Add Optional Due Date: working
+
+No correction prompts were required.
+
+### System C
+
+Prompt executed: 18 March 2026  
+Total implementation time: 2 minute 05 seconds
+
+Result:
+The model successfully implemented the "add due date" feature.
+
+Files modified: 3  
+Lines added: 22  
+Lines deleted: 6
+
+Verification results:
+
+Existing features:
+- Add task: working
+- Delete task: working
+- Mark task complete: working
+- Persistence: working
+- Edit task: working
+- Filter tasks (all / completed / pending): working
+- Clear Compelted tasks: working
+
+New feature:
+- Add Optional Due Date: working
+
+No correction prompts were required.
+
+### System B
+
+Prompt executed: 18 March 2026  
+Total implementation time: 2 minute 21 seconds
+
+Result:
+The model successfully implemented the "add due date" feature.
+
+Files modified: 4 
+Lines added: 32  
+Lines deleted: 13
+
+Verification results:
+
+Existing features:
+- Add task: working
+- Delete task: working
+- Mark task complete: working
+- Persistence: working
+- Edit task: working
+- Filter tasks (all / completed / pending): working
+- Clear Compelted tasks: working
+
+New feature:
+- Add Optional Due Date: working
 
 No correction prompts were required.
