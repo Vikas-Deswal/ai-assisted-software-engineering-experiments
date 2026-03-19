@@ -2,18 +2,20 @@ import { useState } from 'react';
 
 function TodoInput({ onAddTask }) {
   const [inputValue, setInputValue] = useState('');
+  const [dueDate, setDueDate] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      onAddTask(inputValue);
+      onAddTask(inputValue, dueDate || null);
       setInputValue('');
+      setDueDate('');
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="mb-6">
-      <div className="flex gap-2">
+      <div className="flex gap-2 mb-2">
         <input
           type="text"
           value={inputValue}
@@ -27,6 +29,15 @@ function TodoInput({ onAddTask }) {
         >
           Add
         </button>
+      </div>
+      <div className="flex gap-2">
+        <input
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+          className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+        <span className="text-sm text-gray-500 self-center">Due date (optional)</span>
       </div>
     </form>
   );

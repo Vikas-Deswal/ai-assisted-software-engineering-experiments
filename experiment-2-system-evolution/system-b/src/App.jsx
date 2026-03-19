@@ -10,9 +10,9 @@ function App() {
   const [tasks, setTasks] = useLocalStorage('todos', []);
   const [filter, setFilter] = useState('all');
 
-  const handleAddTask = (text) => {
+  const handleAddTask = (text, dueDate) => {
     if (text.trim()) {
-      setTasks([...tasks, createTask(text)]);
+      setTasks([...tasks, createTask(text, dueDate)]);
     }
   };
 

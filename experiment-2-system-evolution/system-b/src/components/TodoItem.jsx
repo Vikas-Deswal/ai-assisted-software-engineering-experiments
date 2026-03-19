@@ -43,13 +43,20 @@ function TodoItem({ task, onToggleComplete, onDelete, onEdit }) {
           autoFocus
         />
       ) : (
-        <span
-          className={`flex-1 text-gray-800 ${
-            task.completed ? 'line-through text-gray-400' : ''
-          }`}
-        >
-          {task.text}
-        </span>
+        <div className="flex-1">
+          <span
+            className={`text-gray-800 ${
+              task.completed ? 'line-through text-gray-400' : ''
+            }`}
+          >
+            {task.text}
+          </span>
+          {task.dueDate && (
+            <div className="text-xs text-gray-500 mt-1">
+              Due: {new Date(task.dueDate).toLocaleDateString()}
+            </div>
+          )}
+        </div>
       )}
       {isEditing ? (
         <>
