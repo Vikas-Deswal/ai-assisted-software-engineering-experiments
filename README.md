@@ -1,5 +1,9 @@
 # AI-Assisted Software Engineering Experiments
 
+## Key Insight
+
+Structured prompting workflows produced more compact and stable evolving codebases, while less structured approaches led to faster code growth and higher accumulation of maintainability issues.
+
 ## Overview
 
 This project explores how AI-assisted coding workflows influence the structure and evolution of software systems.
